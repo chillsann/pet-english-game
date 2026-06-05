@@ -1,0 +1,748 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 25px;
+}
+
+/* 头部样式 */
+header {
+    text-align: center;
+    padding: 20px 0 30px;
+    background: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+header h1 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 主游戏区域 */
+.main-game-area {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.pet-section, .learning-section {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 宠物区域样式 */
+.pet-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.pet-avatar {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 5px solid #ff9a9e;
+}
+
+.pet-face {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.pet-eye {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 30px;
+}
+
+.left-eye {
+    left: 20px;
+}
+
+.right-eye {
+    right: 20px;
+}
+
+.pet-mouth {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    border-bottom: 5px solid #333;
+    border-radius: 0 0 20px 20px;
+    bottom: 20px;
+    left: 30px;
+}
+
+.pet-status {
+    flex: 1;
+    min-width: 200px;
+}
+
+.pet-status h3 {
+    font-size: 1.8rem;
+    color: #6a11cb;
+    margin-bottom: 15px;
+    font-family: 'Comic Neue', cursive;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.status-bar span:first-child {
+    width: 80px;
+    font-weight: 600;
+}
+
+.bar-container {
+    flex: 1;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.bar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.happiness-bar {
+    background: linear-gradient(to right, #FFD166, #EF476F);
+}
+
+.knowledge-bar {
+    background: linear-gradient(to right, #118AB2, #06D6A0);
+}
+
+.energy-bar {
+    background: linear-gradient(to right, #7209B7, #3A86FF);
+}
+
+.pet-level {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed #dee2e6;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+/* 宠物动作按钮 */
+.pet-actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.action-btn {
+    padding: 15px 10px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.action-btn i {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.feed-btn {
+    background: linear-gradient(to right, #FF9A8B, #FF6A88);
+}
+
+.play-btn {
+    background: linear-gradient(to right, #42E695, #3BB2B8);
+}
+
+.train-btn {
+    background: linear-gradient(to right, #FFD86F, #FC6262);
+}
+
+.rest-btn {
+    background: linear-gradient(to right, #A8BFFF, #884DFF);
+}
+
+.action-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 学习区域标签 */
+.learning-tabs {
+    display: flex;
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #6c757d;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    color: #6a11cb;
+    border-bottom: 3px solid #6a11cb;
+}
+
+.tab-btn:hover:not(.active) {
+    color: #495057;
+    background-color: #f8f9fa;
+}
+
+/* 学习内容 */
+.tab-content {
+    display: none;
+    min-height: 350px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    color: #6a11cb;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 词汇学习 */
+.vocab-category h4 {
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+.category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.category-btn {
+    padding: 10px 15px;
+    background-color: #e9ecef;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.category-btn:hover {
+    background-color: #6a11cb;
+    color: white;
+}
+
+.category-btn.active {
+    background-color: #6a11cb;
+    color: white;
+}
+
+.vocab-exercise {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    min-height: 150px;
+}
+
+.instruction {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+.vocab-word {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #6a11cb;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.vocab-meaning, .vocab-example {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.vocab-example {
+    font-style: italic;
+    color: #495057;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+    border-left: 4px solid #6a11cb;
+}
+
+.audio-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.speak-btn {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #3BB2B8, #42E695);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 150px;
+}
+
+.pronunciation {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pronunciation input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1rem;
+    min-width: 200px;
+}
+
+.pronunciation button {
+    padding: 12px 20px;
+    background: linear-gradient(to right, #7209B7, #3A86FF);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* 语法练习 */
+.grammar-exercise {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.question {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.option:hover {
+    background-color: #e9ecef;
+}
+
+.option.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.option.incorrect {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.feedback {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.feedback.correct {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.feedback.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.next-btn {
+    padding: 12px 25px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 口语训练 */
+.speaking-exercise {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.speaking-prompt {
+    margin-bottom: 20px;
+}
+
+.sentence-to-read {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #6a11cb;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    border-left: 5px solid #6a11cb;
+}
+
+.speaking-controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.record-btn, .stop-btn, .playback-btn, .sample-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.record-btn {
+    background: linear-gradient(to right, #EF476F, #FF9A8B);
+}
+
+.stop-btn {
+    background: linear-gradient(to right, #6c757d, #adb5bd);
+}
+
+.playback-btn {
+    background: linear-gradient(to right, #118AB2, #06D6A0);
+}
+
+.sample-btn {
+    background: linear-gradient(to right, #7209B7, #3A86FF);
+}
+
+.record-btn:disabled, .stop-btn:disabled, .playback-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.speaking-feedback {
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    min-height: 60px;
+}
+
+.sample-audio {
+    margin-top: 20px;
+}
+
+/* 学习进度 */
+.progress-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #6a11cb;
+}
+
+.stat-card h4 {
+    color: #6c757d;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #6a11cb;
+}
+
+.progress-chart {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* 游戏消息 */
+.game-messages {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.game-messages h3 {
+    color: #6a11cb;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.messages-container {
+    max-height: 150px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.message {
+    padding: 10px 15px;
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+}
+
+.message.success {
+    border-left: 4px solid #06D6A0;
+}
+
+.message.info {
+    border-left: 4px solid #118AB2;
+}
+
+.message.warning {
+    border-left: 4px solid #FFD166;
+}
+
+.achievements h4 {
+    margin-bottom: 15px;
+    color: #495057;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    padding: 8px 15px;
+    background: linear-gradient(to right, #FFD166, #FF9A8B);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 发音系统 */
+.audio-system {
+    background-color: #f8f9fa;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.audio-system h3 {
+    color: #6a11cb;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.voice-controls {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.voice-setting {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.voice-setting label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.voice-setting select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    background-color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+#testVoiceBtn {
+    padding: 10px 20px;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+.voice-status {
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    min-height: 60px;
+}
+
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+    border-top: 2px solid #f1f3f5;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .main-game-area {
+        flex-direction: column;
+    }
+    
+    .pet-actions {
+        grid-template-columns: 1fr;
+    }
+    
+    .progress-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .progress-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .speaking-controls {
+        flex-direction: column;
+    }
+}

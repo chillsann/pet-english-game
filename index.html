@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>宠物英语学院 - PET考试学习游戏</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Nunito:wght@400;600;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <h1><i class="fas fa-paw"></i> 宠物英语学院</h1>
+            <p class="subtitle">通过照顾宠物学习PET英语考试内容！</p>
+        </header>
+
+        <!-- 主游戏区域 -->
+        <div class="main-game-area">
+            <!-- 左侧宠物区域 -->
+            <div class="pet-section">
+                <div class="pet-container">
+                    <div class="pet-avatar" id="petAvatar">
+                        <div class="pet-face">
+                            <div class="pet-eye left-eye"></div>
+                            <div class="pet-eye right-eye"></div>
+                            <div class="pet-mouth"></div>
+                        </div>
+                    </div>
+                    <div class="pet-status">
+                        <h3 id="petName">Paws</h3>
+                        <div class="status-bar">
+                            <span>幸福度:</span>
+                            <div class="bar-container">
+                                <div class="bar happiness-bar" id="happinessBar"></div>
+                            </div>
+                            <span id="happinessValue">85%</span>
+                        </div>
+                        <div class="status-bar">
+                            <span>知识值:</span>
+                            <div class="bar-container">
+                                <div class="bar knowledge-bar" id="knowledgeBar"></div>
+                            </div>
+                            <span id="knowledgeValue">60%</span>
+                        </div>
+                        <div class="status-bar">
+                            <span>能量值:</span>
+                            <div class="bar-container">
+                                <div class="bar energy-bar" id="energyBar"></div>
+                            </div>
+                            <span id="energyValue">75%</span>
+                        </div>
+                        <div class="pet-level">
+                            <span>等级: <span id="petLevel">3</span></span>
+                            <span>积分: <span id="points">1250</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pet-actions">
+                    <button class="action-btn feed-btn" id="feedBtn">
+                        <i class="fas fa-apple-alt"></i> 喂食(词汇)
+                    </button>
+                    <button class="action-btn play-btn" id="playBtn">
+                        <i class="fas fa-baseball-ball"></i> 玩耍(语法)
+                    </button>
+                    <button class="action-btn train-btn" id="trainBtn">
+                        <i class="fas fa-dumbbell"></i> 训练(口语)
+                    </button>
+                    <button class="action-btn rest-btn" id="restBtn">
+                        <i class="fas fa-bed"></i> 休息
+                    </button>
+                </div>
+            </div>
+
+            <!-- 右侧学习区域 -->
+            <div class="learning-section">
+                <div class="learning-tabs">
+                    <button class="tab-btn active" data-tab="vocabulary">词汇学习</button>
+                    <button class="tab-btn" data-tab="grammar">语法练习</button>
+                    <button class="tab-btn" data-tab="speaking">口语训练</button>
+                    <button class="tab-btn" data-tab="progress">学习进度</button>
+                </div>
+
+                <div class="learning-content">
+                    <!-- 词汇学习模块 -->
+                    <div class="tab-content active" id="vocabulary">
+                        <h3><i class="fas fa-book-open"></i> PET词汇学习</h3>
+                        <div class="vocab-category">
+                            <h4>选择词汇类别:</h4>
+                            <div class="category-buttons" id="vocabCategories">
+                                <!-- 动态生成 -->
+                            </div>
+                        </div>
+                        <div class="vocab-exercise" id="vocabExercise">
+                            <p class="instruction">选择一个类别开始学习！</p>
+                        </div>
+                        <div class="audio-controls" id="vocabAudioControls" style="display: none;">
+                            <button class="speak-btn" id="speakWordBtn">
+                                <i class="fas fa-volume-up"></i> 发音
+                            </button>
+                            <div class="pronunciation">
+                                <input type="text" id="pronunciationInput" placeholder="尝试发音...">
+                                <button id="checkPronunciationBtn">检查发音</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 语法练习模块 -->
+                    <div class="tab-content" id="grammar">
+                        <h3><i class="fas fa-language"></i> PET语法练习</h3>
+                        <div class="grammar-exercise" id="grammarExercise">
+                            <div class="question-container">
+                                <p class="question" id="grammarQuestion">加载中...</p>
+                                <div class="options" id="grammarOptions">
+                                    <!-- 动态生成 -->
+                                </div>
+                            </div>
+                            <div class="feedback" id="grammarFeedback"></div>
+                        </div>
+                        <button class="next-btn" id="nextGrammarBtn">下一题</button>
+                    </div>
+
+                    <!-- 口语训练模块 -->
+                    <div class="tab-content" id="speaking">
+                        <h3><i class="fas fa-microphone"></i> 口语训练</h3>
+                        <div class="speaking-exercise" id="speakingExercise">
+                            <div class="speaking-prompt">
+                                <p id="speakingPrompt">点击开始录音按钮，然后朗读下面的句子</p>
+                                <div class="sentence-to-read" id="sentenceToRead"></div>
+                            </div>
+                            <div class="speaking-controls">
+                                <button class="record-btn" id="recordBtn">
+                                    <i class="fas fa-microphone"></i> 开始录音
+                                </button>
+                                <button class="stop-btn disabled" id="stopBtn" disabled>
+                                    <i class="fas fa-stop"></i> 停止
+                                </button>
+                                <button class="playback-btn disabled" id="playbackBtn" disabled>
+                                    <i class="fas fa-play"></i> 播放
+                                </button>
+                            </div>
+                            <div class="speaking-feedback" id="speakingFeedback"></div>
+                            <div class="sample-audio">
+                                <button class="sample-btn" id="sampleAudioBtn">
+                                    <i class="fas fa-headphones"></i> 听范例发音
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 学习进度模块 -->
+                    <div class="tab-content" id="progress">
+                        <h3><i class="fas fa-chart-line"></i> 学习进度</h3>
+                        <div class="progress-stats">
+                            <div class="stat-card">
+                                <h4>已学词汇</h4>
+                                <p class="stat-value" id="vocabLearned">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>语法正确率</h4>
+                                <p class="stat-value" id="grammarAccuracy">0%</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>口语练习次数</h4>
+                                <p class="stat-value" id="speakingPractice">0</p>
+                            </div>
+                            <div class="stat-card">
+                                <h4>PET等级评估</h4>
+                                <p class="stat-value" id="petLevelAssessment">A1</p>
+                            </div>
+                        </div>
+                        <div class="progress-chart">
+                            <h4>技能提升</h4>
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 游戏消息和成就 -->
+        <div class="game-messages">
+            <h3><i class="fas fa-trophy"></i> 成就与消息</h3>
+            <div class="messages-container" id="messagesContainer">
+                <div class="message success">欢迎来到宠物英语学院！</div>
+            </div>
+            <div class="achievements">
+                <h4>已解锁成就</h4>
+                <div class="badges" id="badgesContainer">
+                    <div class="badge"><i class="fas fa-star"></i> 新手学习者</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 发音系统控制 -->
+        <div class="audio-system">
+            <h3><i class="fas fa-volume-up"></i> 发音系统</h3>
+            <div class="voice-controls">
+                <div class="voice-setting">
+                    <label for="voiceSelect">选择发音人:</label>
+                    <select id="voiceSelect">
+                        <option value="">系统默认</option>
+                    </select>
+                </div>
+                <div class="voice-setting">
+                    <label for="rateSelect">语速:</label>
+                    <select id="rateSelect">
+                        <option value="0.7">慢速</option>
+                        <option value="1" selected>正常</option>
+                        <option value="1.3">快速</option>
+                    </select>
+                </div>
+                <button id="testVoiceBtn">测试发音</button>
+            </div>
+            <div class="voice-status" id="voiceStatus"></div>
+        </div>
+
+        <footer>
+            <p>宠物英语学院 - 基于PET考试大纲的英语学习游戏 | 部署到GitHub Pages说明见代码注释</p>
+        </footer>
+    </div>
+
+    <!-- 脚本引入 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script src="audio-system.js"></script>
+</body>
+</html>
